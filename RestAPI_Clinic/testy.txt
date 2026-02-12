@@ -1,0 +1,77 @@
+>newman run Clinic.postman_collection.json
+
+Clinic
+
+→ Get doctors
+  GET http://localhost:3000/api/doctors [200 OK, 911B, 59ms]
+
+→ Post visit unauthorized
+  POST http://localhost:3000/api/appointments [401 Unauthorized, 281B, 3ms]
+
+→ Register Patient
+  POST http://localhost:3000/api/auth/register/patient [201 Created, 424B, 139ms]
+
+→ Register Patient Wrong
+  POST http://localhost:3000/api/auth/register/patient [400 Bad Request, 1.02kB, 99ms]
+
+→ Login as Patient
+  POST http://localhost:3000/api/auth/login [400 Bad Request, 275B, 39ms]
+
+→ Login as Patient 
+  POST http://localhost:3000/api/auth/login [200 OK, 419B, 95ms]
+
+→ Post visit
+  POST http://localhost:3000/api/appointments [201 Created, 518B, 43ms]
+
+→ Register Doctor
+  POST http://localhost:3000/api/auth/register/doctor [403 Forbidden, 284B, 5ms]
+
+→ Change Password
+  PATCH http://localhost:3000/api/patients/681c58da206acb1f6bf57194/password [200 OK, 265B, 103ms]
+
+→ Change Status
+  PUT http://localhost:3000/api/appointments/681c58da206acb1f6bf57196 [403 Forbidden, 263B, 8ms]
+
+→ Login as Admin
+  POST http://localhost:3000/api/auth/login [200 OK, 439B, 95ms]
+
+→ Change Status Copy
+  PUT http://localhost:3000/api/appointments/681c76fab58271d517b3342b [403 Forbidden, 263B, 6ms]
+
+→ Get appts by patient
+  GET http://localhost:3000/api/patients/681c58da206acb1f6bf57194/appointments [200 OK, 2.03kB, 83ms]
+
+→ Post appointment
+  POST http://localhost:3000/api/appointments [201 Created, 523B, 46ms]
+
+→ Get appts by date
+  GET http://localhost:3000/api/appointments?page=&limit=&doctor=&patient=&date=2025-06-18T13:00:00.000Z [200 OK, 1.43kB, 82ms]
+
+→ Get appts all
+  GET http://localhost:3000/api/appointments?page=&limit=&doctor=&patient=&date= [200 OK, 3.39kB, 88ms]
+
+→ Register Doctor (existing)
+  POST http://localhost:3000/api/auth/register/doctor [409 Conflict, 265B, 51ms]
+
+→ Register Doctor new
+  POST http://localhost:3000/api/auth/register/doctor [201 Created, 445B, 138ms]
+
+┌─────────────────────────┬───────────────────┬──────────────────┐
+│                         │          executed │           failed │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│              iterations │                 1 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│                requests │                18 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│            test-scripts │                21 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│      prerequest-scripts │                18 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│              assertions │                 0 │                0 │
+├─────────────────────────┴───────────────────┴──────────────────┤
+│ total run duration: 2.5s                                       │
+├────────────────────────────────────────────────────────────────┤
+│ total data received: 9.11kB (approx)                           │
+├────────────────────────────────────────────────────────────────┤
+│ average response time: 65ms [min: 3ms, max: 139ms, s.d.: 42ms] │
+└────────────────────────────────────────────────────────────────┘
