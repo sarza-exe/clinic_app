@@ -50,16 +50,6 @@ Clinic SPA simulates real clinical workflows and demonstrates full-stack enginee
 
 ---
 
-## My role
-
-* Designed the **REST API**, Mongoose schemas and authorization logic.
-* Implemented the **Node/Express controllers**, including validation and role checks.
-* Built the **Flutter client**: login/register flows, **5 distinct views** (appointments, doctors, patients, profile, create/edit appointment), navigation drawer and state management (Provider).
-* Integrated **Google Sign-In on both Web and Android**, including the web migration to Google Identity Services (GSI) and conditional platform code so Android builds remain clean.
-* Implemented production-relevant **dev workflows**: local device testing with `adb reverse`, web hosting considerations, and secure JWT flow with `flutter_secure_storage`.
-
----
-
 ## Notable technical challenges & solutions
 
 * **Google Sign-In cross-platform:** migrated Web flow to GSI `renderButton()` and used `onCurrentUserChanged` to receive tokens; on mobile used `serverClientId` to obtain `idToken`.
